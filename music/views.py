@@ -11,7 +11,7 @@ from music.models import Song, Album, Artist
 from music.serializers import SongSerializer, AlbumSerializer, ArtistSerializer
 
 
-class SongViewSet(ModelViewSet):
+class SongViewSet(ReadOnlyModelViewSet):
     queryset = Song.objects.all()
     serializer_class = SongSerializer
     pagination_class = LimitOffsetPagination
@@ -35,12 +35,12 @@ class SongViewSet(ModelViewSet):
         return Response(data=serializer.data)
 
 
-class AlbumViewSet(ModelViewSet):
+class AlbumViewSet(ReadOnlyModelViewSet):
     queryset = Album.objects.all()
     serializer_class = AlbumSerializer
 
 
-class ArtistViewSet(ModelViewSet):
+class ArtistViewSet(ReadOnlyModelViewSet):
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
 
